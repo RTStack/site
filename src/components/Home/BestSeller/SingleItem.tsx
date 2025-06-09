@@ -11,6 +11,7 @@ import Link from "next/link";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import TooltipButton from "@/components/Common/TooltipButton";
 import { FaWhatsapp } from "react-icons/fa";
+import { StarRating } from "@/components/Common/StarRating";
 
 const SingleItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -47,43 +48,15 @@ const SingleItem = ({ item }: { item: Product }) => {
         <div className="text-center px-4 py-7.5">
           <div className="flex items-center justify-center gap-2.5 mb-2">
             <div className="flex items-center gap-1">
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
-              <Image
-                src="/images/icons/icon-star.svg"
-                alt="star icon"
-                width={14}
-                height={14}
-              />
+              <span className="text-custom-sm">{item.rating}</span>
+              <StarRating rating={item.rating} />
             </div>
 
-            <p className="text-custom-sm">({item.reviews})</p>
+            <p className="text-custom-sm">({item.reviews} reviews)</p>
           </div>
 
           <h3 className="font-bold text-dark ease-out duration-200 hover:text-blue mb-1.5">
-            <Link href={`/rental/${item.slug}`}> {item.title} </Link>
+            <Link href={`/rental/${item.slug}`} title={item.title}> {item.title} </Link>
           </h3>
 
           <span className="flex items-center justify-center gap-2 font-medium text-sm">
@@ -92,8 +65,8 @@ const SingleItem = ({ item }: { item: Product }) => {
         </div>
 
         <div className="flex justify-center items-center">
-          <a href={`/rental/${item.slug}`} className="">
-            <Image src={item.imgs.previews[0]} alt="" width={280} height={280} />
+          <a href={`/rental/${item.slug}`} className="" title={item.title}>
+            <Image src={item.imgs.previews[0]} alt={item.title} title={item.title} width={280} height={280} />
           </a>
         </div>
 

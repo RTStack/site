@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import {site} from "@/data/default";
 
-const Breadcrumb = ({ title, pages }) => {
+const Breadcrumb = ({ title, pages, subtitle }: { title: string, pages: string[], subtitle?: string }) => {
   return (
     <div className="overflow-hidden shadow-breadcrumb pt-[140px] sm:pt-[140px] lg:pt-[160px] xl:pt-[140px]">
       <div className="border-t border-gray-3">
@@ -10,6 +10,7 @@ const Breadcrumb = ({ title, pages }) => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <h1 className="font-semibold text-dark text-xl sm:text-2xl xl:text-custom-2">
               {title}
+              <span className="sr-only"> : {subtitle}</span>
             </h1>
 
             <ul className="flex items-center gap-2">
@@ -22,11 +23,11 @@ const Breadcrumb = ({ title, pages }) => {
                 pages.map((page, key) => (
                   <li key={key} className="text-custom-sm capitalize flex items-center gap-1">
                     <Link
-                      href={page.slug}
-                      title={page.title}
+                      href={page.slug ?? pages}
+                      title={page.title ?? pages}
                       className={key === pages.length - 1 ? "text-blue" : "hover:text-blue"}
                     >
-                      {page.title}
+                      {page.title ?? pages}
                     </Link>
                     {key !== pages.length - 1 && <span> /</span>}
                   </li>
