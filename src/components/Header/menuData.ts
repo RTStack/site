@@ -1,12 +1,21 @@
 import { Menu } from "@/types/Menu";
 import categories from "@/data/categories";
+import services from "@/data/services";
 
 const rentalSubmenu = categories.map((item, index) => ({
-  id: index + 1, // ID bisa disesuaikan, atau pakai item.id kalau ada
+  id: index + 1,
   name: item.name,
   title: item.title,
   newTab: item.newTab,
-  path: item.url, // Hati-hati: di categories pakai `url`, bukan `path`
+  path: item.url,
+}));
+
+const jasaSubmenu = services.map((item, index) => ({
+  id: index + 1,
+  name: item.name,
+  title: item.title,
+  newTab: item.newTab,
+  path: `/jasa/${item.slug}`,
 }));
 
 export const menuData: Menu[] = [
@@ -176,43 +185,7 @@ export const mainMenu: Menu[] = [
     name: "Jasa",
     title: "Jasa Tenaga IT Profesional",
     newTab: false,
-    submenu: [
-      {
-        id: 41,
-        name: "Software Development",
-        title: "Harga Jasa Pembuatan Software",
-        newTab: false,
-        path: "/jasa-pembuatan-software",
-      },
-      {
-        id: 42,
-        name: "Web Development",
-        title: "Harga Jasa Pembuatan Website Murah",
-        newTab: false,
-        path: "/jasa-pembuatan-website",
-      },
-      {
-        id: 43,
-        name: "UI/UX Design",
-        title: "Harga Jasa UI/UX Design Profesional",
-        newTab: false,
-        path: "/jasa-ui-ux-design",
-      },
-      {
-        id: 44,
-        name: "Digital Marketing",
-        title: "Harga Jasa Iklan Google & Sosmed",
-        newTab: false,
-        path: "/jasa-iklan-digital-marketing",
-      },
-      {
-        id: 45,
-        name: "Jaringan & CCTV",
-        title: "Harga Jasa Instalasi Jaringan & CCTV",
-        newTab: false,
-        path: "/jasa-instalasi-jaringan-cctv",
-      },
-    ]
+    submenu: jasaSubmenu,
   },
   {
     id: 5,

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import categories from "@/data/categories";
 import CategoryDetails from "@/components/CategoryDetails";
+import Categories from "@/components/Home/Categories";
 
 // Digunakan untuk pre-render semua halaman kategori
 export async function generateStaticParams() {
@@ -32,7 +33,7 @@ export const generateMetadata = async ({
 
   return {
     title: category.title,
-    description: category.img.alt, // fallback deskripsi pakai alt img
+    description: category.img.alt,
   };
 };
 
@@ -51,6 +52,7 @@ export default function RentalCategoryPage({
   return (
     <main>
       <CategoryDetails category={category} />
+      <Categories />
     </main>
   );
 }
