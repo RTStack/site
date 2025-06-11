@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import categories from "@/data/categories";
 import CategoryDetails from "@/components/CategoryDetails";
+import CategoryContents from "@/components/CategoryContents";
 import Categories from "@/components/Home/Categories";
 
 // Digunakan untuk pre-render semua halaman kategori
@@ -53,6 +54,7 @@ export default function RentalCategoryPage({
     <main>
       <CategoryDetails category={category} />
       <Categories />
+      <CategoryContents content={category.content} />
     </main>
   );
 }

@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type Category = {
   id?: number;
   name?: string;
@@ -18,4 +20,5 @@ export type Category = {
     width: number;
     height: number;
   };
+  content?: ReactNode;
 };

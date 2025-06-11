@@ -2,6 +2,9 @@ import { site } from "@/data/default";
 
 import { Category } from "@/types/category";
 
+import { laptopContents } from "@/data/categories/laptop";
+import { komputerContents } from "@/data/categories/komputer";
+
 const categories: Category[] = [
   {
     id: 1,
@@ -16,6 +19,7 @@ const categories: Category[] = [
       width: 128,
       height: 128,
     },
+    content: laptopContents || <p>Konten belum tersedia</p>,
   },
   {
     id: 2,
@@ -30,6 +34,7 @@ const categories: Category[] = [
       width: 128,
       height: 128,
     },
+    content: komputerContents || <p>Konten belum tersedia</p>,
   },
   {
     id: 3,
