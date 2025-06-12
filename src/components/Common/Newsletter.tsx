@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { site } from "@/data/default";
 
-const Newsletter = () => {
+const Newsletter = ({ className = "" }: { className?: string }) => {
   const [fullName, setFullName] = useState("");
 
   const handleContactClick = () => {
@@ -12,7 +12,7 @@ const Newsletter = () => {
     window.open(whatsappLink, "_blank");
   };
   return (
-    <section className="overflow-hidden">
+    <section id="cta" className={`overflow-hidden ${className}`}>
       <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
         <div className="relative z-1 overflow-hidden rounded-xl">
           {/* <!-- bg shapes --> */}

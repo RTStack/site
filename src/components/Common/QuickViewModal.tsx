@@ -221,7 +221,7 @@ const QuickViewModal = () => {
               <div className="flex flex-wrap justify-between gap-5 mt-6 mb-7.5">
                 <div>
                   <h4 className="font-semibold text-lg text-dark mb-3.5">
-                    Price
+                    Harga Sewa
                   </h4>
 
                   <span className="flex items-center gap-2">
