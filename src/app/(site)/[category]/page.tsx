@@ -1,29 +1,38 @@
 import * as React from 'react';
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
 import categories from "@/data/categories";
+import areaList from "@/data/area";
 import CategoryDetails from "@/components/CategoryDetails";
 import CategoryContents from "@/components/CategoryContents";
 import Categories from "@/components/Home/Categories";
 
-// Digunakan untuk pre-render semua halaman kategori
+// Helper buat normalisasi nama area jadi slug
+const slugify = (text: string) =>
+  text.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+
+// Generate semua kombinasi kategori + area
 export async function generateStaticParams() {
-  return categories
-    .filter(cat => !cat.newTab)
-    .map((category) => ({
-      category: category.url.replace("/", ""),
-    }));
+  const baseSlugs = categories.filter(c => !c.newTab).map(c => c.url.replace("/", ""));
+  const areaSlugs = areaList.map(slugify);
+
+  const params = [];
+
+  for (const base of baseSlugs) {
+    params.push({ category: base }); // tanpa area
+    for (const area of areaSlugs) {
+      params.push({ category: `${base}-${area}` }); // dengan area
+    }
+  }
+
+  return params;
 }
 
-// Metadata dinamis per kategori
-export const generateMetadata = async ({
-  params,
-}: {
-  params: { category: string };
-}): Promise<Metadata> => {
-  const category = categories.find(
-    (p) => p.url.replace("/", "") === params.category
-  );
+// Metadata dinamis
+export const generateMetadata = async ({ params }: { params: { category: string } }): Promise<Metadata> => {
+  const { baseCategory, selectedArea } = parseSlug(params.category);
+  const category = categories.find((c) => c.url.replace("/", "") === baseCategory);
 
   if (!category) {
     return {
@@ -32,29 +41,100 @@ export const generateMetadata = async ({
     };
   }
 
+  const title = selectedArea
+    ? category.title.replace(/terdekat/i, selectedArea)
+    : category.title;
+
+  const description = selectedArea
+    ? category.description.replace(/terdekat/gi, selectedArea)
+    : category.description;
+
   return {
-    title: category.title,
-    description: category.img.alt,
+    title,
+    description,
   };
 };
 
-// Halaman utama per kategori
-export default function RentalCategoryPage({
-  params,
-}: {
-  params: { category: string };
-}) {
-  const category = categories.find(
-    (cat) => cat.url.replace("/", "") === params.category
-  );
+// Halaman utama kategori
+export default function RentalCategoryPage({ params }: { params: { category: string } }) {
+  const { baseCategory, selectedArea } = parseSlug(params.category);
+  const category = categories.find((c) => c.url.replace("/", "") === baseCategory);
 
   if (!category) return notFound();
 
+  const patchedTitle = selectedArea
+    ? category.title.replace(/terdekat/gi, selectedArea)
+    : category.title;
+
+  const patchedDescription = selectedArea
+    ? category.description.replace(/terdekat/gi, selectedArea)
+    : category.description;
+
+  const patchedContent = selectedArea
+    ? patchReactNode(category.content, selectedArea)
+    : category.content;
+
+  const patchedCategory = {
+    ...category,
+    title: patchedTitle,
+    description: patchedDescription,
+    content: patchedContent,
+  };
+
   return (
     <main>
-      <CategoryDetails category={category} />
+      <CategoryDetails category={patchedCategory} />
       <Categories />
-      <CategoryContents content={category.content} />
+      <CategoryContents content={patchedCategory.content} />
     </main>
   );
+}
+
+
+// 🔍 Parsing slug jadi { baseCategory, selectedArea }
+function parseSlug(slug: string) {
+  const parts = slug.split("-");
+  let baseCategory = slug;
+  let selectedArea = "";
+
+  for (let i = parts.length - 1; i > 0; i--) {
+    const maybeArea = parts.slice(i).join("-");
+    const formatted = areaList.find(
+      (a) => slugify(a) === maybeArea
+    );
+    if (formatted) {
+      selectedArea = formatted;
+      baseCategory = parts.slice(0, i).join("-");
+      break;
+    }
+  }
+
+  return { baseCategory, selectedArea };
+}
+
+// Rekursif: replace teks "terdekat" dalam semua children string ReactNode
+function patchReactNode(node: React.ReactNode, selectedArea: string): React.ReactNode {
+  if (typeof node === "string") {
+    return node.replace(/terdekat/gi, selectedArea);
+  }
+
+  if (Array.isArray(node)) {
+    return node.map((child, index) => {
+      const patched = patchReactNode(child, selectedArea);
+      // Kalau hasil patch adalah elemen, dan belum punya key, kasih key
+      if (React.isValidElement(patched) && patched.key == null) {
+        return React.cloneElement(patched, { key: index });
+      }
+      return patched;
+    });
+  }
+
+  if (React.isValidElement(node)) {
+    return React.cloneElement(node, {
+      ...node.props,
+      children: patchReactNode(node.props.children, selectedArea),
+    });
+  }
+
+  return node;
 }

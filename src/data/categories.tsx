@@ -9,7 +9,7 @@ const categories: Category[] = [
   {
     id: 1,
     name: "Laptop",
-    title: "Sewa Laptop Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Laptop Terdekat Bergaransi.",
     description: "Pusat Rental Laptop Terdekat Terbaik & Terlengkap untuk Kantor, Event & Sekolah. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-laptop",
     newTab: false,
@@ -24,7 +24,7 @@ const categories: Category[] = [
   {
     id: 2,
     name: "Komputer",
-    title: "Sewa Komputer PC Desktop Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Komputer PC Desktop Terdekat Bergaransi.",
     description: "Sewa Komputer PC Desktop Berkualitas untuk Kantor, Event, dan Sekolah. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-komputer",
     newTab: false,
@@ -39,7 +39,7 @@ const categories: Category[] = [
   {
     id: 3,
     name: "Server",
-    title: "Sewa Server Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Server Terdekat Bergaransi.",
     description: "Penyewaan Server Berkualitas untuk Kantor, Event, dan Proyek. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-server",
     newTab: false,
@@ -53,7 +53,7 @@ const categories: Category[] = [
   {
     id: 4,
     name: "Printer",
-    title: "Sewa Printer Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Printer Terdekat Bergaransi.",
     description: "Penyewaan Printer Berkualitas untuk Kantor, Event, dan Proyek. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-printer",
     newTab: false,
@@ -67,7 +67,7 @@ const categories: Category[] = [
   {
     id: 5,
     name: "Kamera",
-    title: "Sewa Kamera Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Kamera Terdekat Bergaransi.",
     description: "Penyewaan Kamera Berkualitas untuk Acara, Shooting, dan Dokumentasi. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-kamera",
     newTab: false,
@@ -81,7 +81,7 @@ const categories: Category[] = [
   {
     id: 6,
     name: "Lensa Kamera",
-    title: "Rental Lensa Kamera Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Rental Lensa Kamera Terdekat Bergaransi.",
     description: "Penyewaan Lensa Kamera Berkualitas untuk Acara, Shooting, dan Dokumentasi. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-lensa-kamera",
     newTab: false,
@@ -95,7 +95,7 @@ const categories: Category[] = [
   {
     id: 7,
     name: "Smart TV",
-    title: "Sewa Smart TV Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Smart TV Terdekat Bergaransi.",
     description: "Penyewaan Smart TV Berkualitas untuk Acara, Pameran, dan Presentasi. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-tv-led",
     newTab: false,
@@ -109,7 +109,7 @@ const categories: Category[] = [
   {
     id: 8,
     name: "Videotron",
-    title: "Sewa Videotron: LED Indoor/Outdoor Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Videotron: LED Indoor/Outdoor Terdekat Bergaransi.",
     description: "Penyewaan Videotron Berkualitas untuk Acara, Pameran, dan Presentasi. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-videotron",
     newTab: false,
@@ -123,7 +123,7 @@ const categories: Category[] = [
   {
     id: 9,
     name: "Proyektor",
-    title: "Sewa Proyektor: Indoor & Outdoor Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Proyektor: Indoor & Outdoor Terdekat Bergaransi.",
     url: "/sewa-proyektor",
     newTab: false,
     img: {
@@ -136,7 +136,7 @@ const categories: Category[] = [
   {
     id: 10,
     name: "Drone",
-    title: "Sewa Drone: Cinematic Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Drone: Cinematic Terdekat Bergaransi.",
     description: "Penyewaan Drone Berkualitas untuk Dokumentasi, Pameran, dan Acara. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-drone",
     newTab: false,
@@ -150,7 +150,7 @@ const categories: Category[] = [
   {
     id: 11,
     name: "Sound System",
-    title: "Sewa Sound System Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Sound System Terdekat Bergaransi.",
     description: "Penyewaan Sound System Berkualitas untuk Acara, Wedding, dan Konser. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-sound-system",
     newTab: false,
@@ -164,7 +164,7 @@ const categories: Category[] = [
   {
     id: 12,
     name: "Genset",
-    title: "Sewa Genset Listrik Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Genset Listrik Terdekat Bergaransi.",
     description: "Penyewaan Genset Berkualitas untuk Acara, Event, dan Kebutuhan Listrik Cadangan. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-genset",
     newTab: false,
@@ -178,7 +178,7 @@ const categories: Category[] = [
   {
     id: 13,
     name: "Mesin Fotocopy",
-    title: "Sewa Mesin Fotokopi Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Mesin Fotokopi Terdekat Bergaransi.",
     description: "Penyewaan Mesin Fotokopi Berkualitas untuk Acara, Bisnis, dan Kebutuhan Fotokopi. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-mesin-photocopy",
     newTab: false,
@@ -192,7 +192,7 @@ const categories: Category[] = [
   {
     id: 14,
     name: "Tablet",
-    title: "Sewa Tablet & iPad Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Tablet & iPad Terdekat Bergaransi.",
     description: "Penyewaan Tablet Berkualitas untuk Acara, Bisnis, dan Kebutuhan Digital. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-tablet",
     newTab: false,
@@ -206,7 +206,7 @@ const categories: Category[] = [
   {
     id: 15,
     name: "CCTV",
-    title: "Sewa CCTV Lengkap Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa CCTV Lengkap Terdekat Bergaransi.",
     description: "Penyewaan CCTV Berkualitas untuk Keamanan dan Surveilans. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-cctv",
     newTab: false,
@@ -220,7 +220,7 @@ const categories: Category[] = [
   {
     id: 16,
     name: "Lighting",
-    title: "Sewa Lighting Panggung & Studio Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Lighting Panggung & Studio Terdekat Bergaransi.",
     description: "Penyewaan Lighting Berkualitas untuk Acara, Event, dan Presentasi. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-lighting",
     newTab: false,
@@ -234,7 +234,7 @@ const categories: Category[] = [
   {
     id: 17,
     name: "Screen",
-    title: "Sewa Screen Besar Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Screen Besar Terdekat Bergaransi.",
     description: "Penyewaan Screen Berkualitas untuk Presentasi dan Acara. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-screen",
     newTab: false,
@@ -248,7 +248,7 @@ const categories: Category[] = [
   {
     id: 18,
     name: "Custom",
-    title: "Sewa Perangkat Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Perangkat Terdekat Bergaransi.",
     description: "Penyewaan Perangkat Berkualitas untuk Kebutuhan Khusus Anda. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "/sewa-custom",
     newTab: false,
@@ -262,7 +262,7 @@ const categories: Category[] = [
   {
     id: 19,
     name: "Mobil",
-    title: "Sewa Mobil Harian/Bulanan Terdekat Bergaransi. Jakarta Bogor Depok Tangerang Bekasi",
+    title: "Sewa Mobil Harian/Bulanan Terdekat Bergaransi.",
     description: "Penyewaan Mobil Berkualitas untuk Kebutuhan Transportasi Harian dan Bulanan. Durasi Rental ✓ Harian ✓ Mingguan ✓ Bulanan. Langsung Antar ke Lokasi Anda di Jabodetabek",
     url: "https://www.rentallmobil.com",
     newTab: true,
