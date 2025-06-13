@@ -1,5 +1,5 @@
 import { Product } from "@/types/product";
-import { specifications } from "./spec-komputer";
+import specifications from "./spek/komputer";
 
 const basePromo = {
   promo: "30% OFF*",

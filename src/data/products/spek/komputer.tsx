@@ -1,4 +1,4 @@
-export const specifications = {
+const specifications = {
   pc: {
     specifications: {
       cpu: "i5",
@@ -76,3 +76,5 @@ export const specifications = {
     },
   },
 };
+
+export default specifications;

@@ -11,7 +11,7 @@ export type Product = {
   description?: string;
   information?: string;
   spec?: string;
-  specifications?: Record<string, string>;
+  specifications?: Record<any, any>;
   reviews?: number;
   rating?: number;
   price?: number;
