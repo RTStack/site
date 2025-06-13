@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Metadata } from "next";
+
 import { notFound } from "next/navigation";
 
 import categories from "@/data/categories";
@@ -56,7 +57,7 @@ export const generateMetadata = async ({ params }: { params: { category: string 
 };
 
 // Halaman utama kategori
-export default function RentalCategoryPage({ params }: { params: { category: string } }) {
+export default async function RentalCategoryPage({ params }: { params: { category: string } }) {
   const { baseCategory, selectedArea } = parseSlug(params.category);
   const category = categories.find((c) => c.url.replace("/", "") === baseCategory);
 
@@ -70,15 +71,25 @@ export default function RentalCategoryPage({ params }: { params: { category: str
     ? category.description.replace(/terdekat/gi, selectedArea)
     : category.description;
 
-  const patchedContent = selectedArea
-    ? patchReactNode(category.content, selectedArea)
-    : category.content;
+  let finalContent = category.content;
+
+  // Coba ambil konten khusus area kalau ada
+  if (selectedArea) {
+    const areaSlug = slugify(selectedArea);
+    try {
+      const areaContentModule = await import(`@/data/categories/area/${areaSlug}/${baseCategory}.tsx`);
+      finalContent = areaContentModule.default || areaContentModule[`${baseCategory}Contents`];
+    } catch (err) {
+      console.warn(`Konten /data/categories/area/${areaSlug}/${baseCategory} khusus tidak ditemukan untuk ${selectedArea} - pakai fallback patch.`);
+      finalContent = patchReactNode(category.content, selectedArea);
+    }
+  }
 
   const patchedCategory = {
     ...category,
     title: patchedTitle,
     description: patchedDescription,
-    content: patchedContent,
+    content: finalContent,
   };
 
   return (
