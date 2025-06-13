@@ -99,6 +99,13 @@ const CategoryDetails = ({
           >
             Cakupan
           </a>
+          <a
+            href="#globalFaq"
+            title={`Sewa ${category.name} Terdekat`}
+            className="hover:text-blue-600 transition"
+          >
+            Seputar Sewa {category.name}
+          </a>
         </div>
       </nav>
       <section

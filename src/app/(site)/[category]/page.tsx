@@ -7,6 +7,7 @@ import categories from "@/data/categories";
 import areaList from "@/data/area";
 import CategoryDetails from "@/components/CategoryDetails";
 import CategoryContents from "@/components/CategoryContents";
+import Faq from "@/components/Faq";
 import Categories from "@/components/Home/Categories";
 
 // Helper buat normalisasi nama area jadi slug
@@ -97,6 +98,7 @@ export default async function RentalCategoryPage({ params }: { params: { categor
       <CategoryDetails category={patchedCategory} />
       <Categories />
       <CategoryContents content={patchedCategory.content} />
+      <Faq categoryName={category?.name || baseCategory} areaName={selectedArea} />
     </main>
   );
 }
