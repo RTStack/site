@@ -81,7 +81,7 @@ const faqs: FaqItem[] = [
 
 ];
 
-export default function FaqLaptop() {
+export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleIndex = (index: number) => {

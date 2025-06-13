@@ -7,7 +7,7 @@ import categories from "@/data/categories";
 import areaList from "@/data/area";
 import CategoryDetails from "@/components/CategoryDetails";
 import CategoryContents from "@/components/CategoryContents";
-import Faq from "@/components/Faq";
+import Faq from "@/components/Faq/FaqRental";
 import Categories from "@/components/Home/Categories";
 
 // Helper buat normalisasi nama area jadi slug
